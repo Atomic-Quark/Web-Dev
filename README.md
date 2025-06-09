@@ -41,28 +41,35 @@ Putting It All Together
 Here's a complete example that demonstrates all the concepts we've covered:
 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Learn about our amazing bakery and delicious recipes">
     <title>Sweet Dreams Bakery - Fresh Baked Goods Daily</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-</head>
-<body>
+    </head>
+
+        
+    <body>
+    
     <header>
+        
         <h1>Sweet Dreams Bakery</h1>
-        <nav>
+        <nav>    
+            
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#menu">Menu</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
-            </ul>
+            </ul>    
+            
         </nav>
-    </header>
+        </header>    
+    
 
     <main>
         <section id="home">
@@ -120,8 +127,11 @@ Here's a complete example that demonstrates all the concepts we've covered:
         <p>&copy; 2024 Sweet Dreams Bakery. All rights reserved.</p>
         <p>Visit us at 123 Baker Street | <a href="tel:+1555123456">Call: (555) 123-4567</a> | <a href="mailto:info@sweetdreamsbakery.com">Email Us</a></p>
     </footer>
-</body>
-</html>
+    </body>
+    </html>
+
+![image](https://github.com/user-attachments/assets/652de4c6-1623-477e-825f-7e45e9a67bb5)
+
                 
 
 
