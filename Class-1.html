@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A complete guide to HTML5 basics, from document structure to semantic elements and best practices.">
+    <meta name="keywords" content="HTML, HTML5, web development, web design, tutorial, guide, front-end">
+    <meta name="author" content="Your Name">
+    <title>Complete HTML5 Basics Guide - From Zero to Understanding</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom styles for demonstrating <style> element (applied via Tailwind classes) -->
+    <style>
+        /* This style block demonstrates the <style> element and would typically contain custom CSS */
+        /* For this example, we are primarily using Tailwind classes */
+        body {
+            font-family: 'Inter', sans-serif; /* Using Inter font */
+        }
+        .section-heading {
+            border-bottom: 2px solid #cbd5e1; /* Tailwind's border-b-2 border-slate-300 */
+            padding-bottom: 0.5rem; /* Tailwind's pb-2 */
+            margin-bottom: 1.5rem; /* Tailwind's mb-6 */
+        }
+    </style>
+
+    <!-- Link to an external stylesheet (demonstrating <link rel="stylesheet">) -->
+    <!-- In a real project, styles.css would contain your main CSS. For this demo, we use inline Tailwind. -->
+    <link rel="stylesheet" href="styles.css"> 
+
+    <!-- Link to a favicon (demonstrating <link rel="icon">) -->
+    <link rel="icon" href="https://placehold.co/32x32/ff0000/ffffff?text=HTML" type="image/x-icon">
+
+    <!-- Script demonstrating <script> element (placed here for demonstration, often at end of body for performance) -->
+    <script>
+        // This script block demonstrates the <script> element
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log("HTML5 Basics Guide website loaded successfully!");
+            // Example of a simple interactive element, though not strictly required by prompt
+            const menuLinks = document.querySelectorAll('nav a');
+            menuLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    // Smooth scroll to section
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href').substring(1);
+                    const targetSection = document.getElementById(targetId);
+                    if (targetSection) {
+                        targetSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased leading-relaxed">
+    <!-- Header section with site title and main navigation -->
+    <header class="bg-blue-700 text-white shadow-lg py-4 px-6 md:px-12 fixed w-full z-10 top-0">
+        <div class="container mx-auto flex flex-col md:flex-row items-center justify-between">
+            <h1 class="text-3xl font-extrabold mb-4 md:mb-0">
+                <a href="#top" class="hover:text-blue-200 transition-colors duration-300">HTML5 Basics Guide</a>
+            </h1>
+            <nav>
+                <ul class="flex flex-wrap justify-center md:space-x-6 text-lg font-medium">
+                    <li class="mb-2 md:mb-0"><a href="#what-is-html" class="hover:text-blue-200 transition-colors duration-300 px-3 py-1 rounded-md">What is HTML?</a></li>
+                    <li class="mb-2 md:mb-0"><a href="#document-structure" class="hover:text-blue-200 transition-colors duration-300 px-3 py-1 rounded-md">Structure</a></li>
+                    <li class="mb-2 md:mb-0"><a href="#head-elements" class="hover:text-blue-200 transition-colors duration-300 px-3 py-1 rounded-md">Head Elements</a></li>
+                    <li class="mb-2 md:mb-0"><a href="#semantic-elements" class="hover:text-blue-200 transition-colors duration-300 px-3 py-1 rounded-md">Semantic HTML</a></li>
+                    <li class="mb-2 md:mb-0"><a href="#text-elements" class="hover:text-blue-200 transition-colors duration-300 px-3 py-1 rounded-md">Text Elements</a></li>
+                    <li class="mb-2 md:mb-0"><a href="#lists" class="hover:text-blue-200 transition-colors duration-300 px-3 py-1 rounded-md">Lists</a></li>
+                    <li class="mb-2 md:mb-0"><a href="#links" class="hover:text-blue-200 transition-colors duration-300 px-3 py-1 rounded-md">Links</a></li>
+                    <li class="mb-2 md:mb-0"><a href="#images" class="hover:text-blue-200 transition-colors duration-300 px-3 py-1 rounded-md">Images</a></li>
+                    <li class="mb-2 md:mb-0"><a href="#comments" class="hover:text-blue-200 transition-colors duration-300 px-3 py-1 rounded-md">Comments</a></li>
+                    <li class="mb-2 md:mb-0"><a href="#validation" class="hover:text-blue-200 transition-colors duration-300 px-3 py-1 rounded-md">Validation & Best Practices</a></li>
+                    <li class="mb-2 md:mb-0"><a href="#putting-it-together" class="hover:text-blue-200 transition-colors duration-300 px-3 py-1 rounded-md">Full Example</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main content area -->
+    <main class="container mx-auto p-6 md:p-8 pt-32"> <!-- Added pt-32 to account for fixed header -->
+
+        <section id="what-is-html" class="mb-12 bg-white p-8 rounded-lg shadow-md">
+            <h2 class="text-4xl font-bold text-blue-800 mb-6 section-heading">What is HTML and Why Do We Need It?</h2>
+            <p class="mb-4 text-lg">
+                HTML stands for <strong>HyperText Markup Language</strong>. Think of it like the blueprint for a house - it tells the browser (like Chrome, Firefox, or Safari) how to display content on a webpage. Just like a house needs walls, doors, and windows in specific places, a webpage needs headings, paragraphs, and images arranged in a particular way.
+            </p>
+            <p class="mb-4 text-lg">
+                The "5" in HTML5 refers to the fifth version of HTML, which is the most modern and powerful version we use today. It's like upgrading from an old flip phone to a smartphone - it can do much more than older versions.
+            </p>
+        </section>
+
+        <section id="document-structure" class="mb-12 bg-white p-8 rounded-lg shadow-md">
+            <h2 class="text-4xl font-bold text-blue-800 mb-6 section-heading">HTML5 Document Structure and DOCTYPE Declaration</h2>
+            <p class="mb-4 text-lg">
+                Every HTML document starts with a special declaration that tells the browser what type of document it's reading. Think of it like showing your ID card at the entrance of a building.
+            </p>
+            <div class="bg-gray-100 p-4 rounded-md shadow-inner mb-4">
+                <pre class="text-gray-900 overflow-x-auto"><code class="language-html">&lt;!DOCTYPE html&gt;</code></pre>
+            </div>
+            <p class="mb-4 text-lg">
+                This line must be the very first line in your HTML file. The <code class="bg-yellow-100 px-1 rounded">&lt;!DOCTYPE html&gt;</code> declaration tells the browser "Hey, this is an HTML5 document, so please interpret everything according to HTML5 rules." Without this declaration, browsers might get confused and display your webpage incorrectly.
+            </p>
+            <p class="mb-4 text-lg">
+                The basic structure of every HTML5 document looks like this:
+            </p>
+            <div class="bg-gray-100 p-4 rounded-md shadow-inner mb-4">
+                <pre class="text-gray-900 overflow-x-auto"><code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;!-- Information about the webpage goes here --&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- The actual content that users see goes here --&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+                </code></pre>
+            </div>
+            <p class="mb-4 text-lg">Let me explain each part:</p>
+            <ul class="list-disc list-inside space-y-2 mb-4 text-lg">
+                <li>The <code class="bg-yellow-100 px-1 rounded">&lt;html&gt;</code> tag: This is like the main container that holds everything else. The <code class="bg-yellow-100 px-1 rounded">lang="en"</code> attribute tells screen readers and search engines that this webpage is written in English. If you were writing in Spanish, you'd use <code class="bg-yellow-100 px-1 rounded">lang="es"</code>.</li>
+                <li>The <code class="bg-yellow-100 px-1 rounded">&lt;head&gt;</code> section: This is like the behind-the-scenes area where you put information about your webpage that users don't directly see, but that helps browsers and search engines understand your page better.</li>
+                <li>The <code class="bg-yellow-100 px-1 rounded">&lt;body&gt;</code> section: This contains all the content that visitors to your website will actually see and interact with.</li>
+            </ul>
+        </section>
+
+        <section id="head-elements" class="mb-12 bg-white p-8 rounded-lg shadow-md">
+            <h2 class="text-4xl font-bold text-blue-800 mb-6 section-heading">Document Head Elements</h2>
+            <p class="mb-4 text-lg">
+                The <code class="bg-yellow-100 px-1 rounded">&lt;head&gt;</code> section contains metadata about your webpage. Think of it like the information on a book cover - it describes what's inside without being part of the main content.
+            </p>
+
+            <h3 class="text-3xl font-semibold text-gray-700 mb-4">The <code class="bg-yellow-100 px-1 rounded">&lt;title&gt;</code> Element</h3>
+            <div class="bg-gray-100 p-4 rounded-md shadow-inner mb-4">
+                <pre class="text-gray-900 overflow-x-auto"><code class="language-html">&lt;title&gt;My Amazing Website&lt;/title&gt;</code></pre>
+            </div>
+            <p class="mb-6 text-lg">
+                The title element defines the name that appears in the browser tab and in search engine results. When someone bookmarks your page, this is the name that gets saved. It's like the title of a book - it should be descriptive and help people understand what your page is about.
+            </p>
+
+            <h3 class="text-3xl font-semibold text-gray-700 mb-4">The <code class="bg-yellow-100 px-1 rounded">&lt;meta&gt;</code> Element</h3>
+            <p class="mb-4 text-lg">Meta elements provide additional information about your webpage:</p>
+            <div class="bg-gray-100 p-4 rounded-md shadow-inner mb-4">
+                <pre class="text-gray-900 overflow-x-auto"><code class="language-html">
+&lt;meta charset="UTF-8"&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+&lt;meta name="description" content="This is my amazing website about learning HTML"&gt;
+&lt;meta name="keywords" content="HTML, web development, tutorial"&gt;
+&lt;meta name="author" content="Your Name"&gt;
+                </code></pre>
+            </div>
+            <p class="mb-4 text-lg">Let me explain each meta tag:</p>
+            <ul class="list-disc list-inside space-y-2 mb-6 text-lg">
+                <li><code class="bg-yellow-100 px-1 rounded">charset="UTF-8"</code>: This tells the browser how to interpret the text characters in your document. UTF-8 can handle almost any character from any language in the world, including emojis. Without this, special characters might display as question marks or weird symbols.</li>
+                <li><code class="bg-yellow-100 px-1 rounded">viewport</code>: This is crucial for mobile devices. It tells the browser how to control the page's dimensions and scaling. Think of it as instructions for how to fit your webpage on different screen sizes, from tiny phones to large desktop monitors.</li>
+                <li><code class="bg-yellow-100 px-1 rounded">description</code>: This provides a brief summary of your webpage that search engines like Google display in search results. It's like the blurb on the back of a book.</li>
+                <li><code class="bg-yellow-100 px-1 rounded">keywords</code>: These help search engines understand what topics your page covers, though they're less important than they used to be.</li>
+                <li><code class="bg-yellow-100 px-1 rounded">author</code>: This simply identifies who created the webpage.</li>
+            </ul>
+
+            <h3 class="text-3xl font-semibold text-gray-700 mb-4">The <code class="bg-yellow-100 px-1 rounded">&lt;link&gt;</code> Element</h3>
+            <p class="mb-4 text-lg">Link elements connect your HTML to external resources:</p>
+            <div class="bg-gray-100 p-4 rounded-md shadow-inner mb-4">
+                <pre class="text-gray-900 overflow-x-auto"><code class="language-html">
+&lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;link rel="icon" href="favicon.ico" type="image/x-icon"&gt;
+                </code></pre>
+            </div>
+            <ul class="list-disc list-inside space-y-2 mb-6 text-lg">
+                <li>Stylesheet link: This connects your HTML to a CSS file that controls how your webpage looks (colors, fonts, spacing, etc.). It's like hiring an interior designer for your house - the HTML provides the structure, and CSS makes it beautiful.</li>
+                <li>Icon link: This sets the small icon that appears in the browser tab next to your page title. It's called a favicon (short for "favorites icon").</li>
+            </ul>
+
+            <h3 class="text-3xl font-semibold text-gray-700 mb-4">The <code class="bg-yellow-100 px-1 rounded">&lt;style&gt;</code> Element</h3>
+            <div class="bg-gray-100 p-4 rounded-md shadow-inner mb-4">
+                <pre class="text-gray-900 overflow-x-auto"><code class="language-html">
+&lt;style&gt;
+    body {
+        font-family: Arial, sans-serif;
+        background-color: lightblue;
+    }
+&lt;/style&gt;
+                </code></pre>
+            </div>
+            <p class="mb-6 text-lg">
+                This allows you to write CSS code directly inside your HTML document. While it's often better to use external CSS files, sometimes you need to add specific styles just for one page.
+            </p>
+
+            <h3 class="text-3xl font-semibold text-gray-700 mb-4">The <code class="bg-yellow-100 px-1 rounded">&lt;script&gt;</code> Element</h3>
+            <div class="bg-gray-100 p-4 rounded-md shadow-inner mb-4">
+                <pre class="text-gray-900 overflow-x-auto"><code class="language-html">
+&lt;script src="script.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+    console.log("Hello, World!");
+&lt;/script&gt;
+                </code></pre>
+            </div>
+            <p class="mb-6 text-lg">
+                Script elements add JavaScript functionality to your webpage. JavaScript makes your page interactive - it can respond to clicks, validate forms, create animations, and much more. You can either link to an external JavaScript file or write JavaScript directly in the HTML.
+            </p>
+        </section>
+
+        <section id="semantic-elements" class="mb-12 bg-white p-8 rounded-lg shadow-md">
+            <h2 class="text-4xl font-bold text-blue-800 mb-6 section-heading">Semantic HTML5 Elements</h2>
+            <p class="mb-4 text-lg">
+                HTML5 introduced semantic elements that describe the meaning and purpose of different sections of your webpage. Think of them as labeled rooms in a house - each has a specific purpose and helps visitors (and search engines) understand the layout.
+            </p>
+
+            <h3 class="text-3xl font-semibold text-gray-700 mb-4"><code class="bg-yellow-100 px-1 rounded">&lt;header&gt;</code> Element</h3>
+            <div class="bg-gray-100 p-4 rounded-md shadow-inner mb-4">
+                <pre class="text-gray-900 overflow-x-auto"><code class="language-html">
+&lt;header&gt;
+    &lt;h1&gt;Welcome to My Website&lt;/h1&gt;
+    &lt;nav&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="#home"&gt;Home&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#about"&gt;About&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#contact"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/nav&gt;
+&lt;/header&gt;
+                </code></pre>
+            </div>
+            <p class="mb-6 text-lg">
+                The header typically contains the site title, logo, and main navigation. It's like the entrance hall of a building where you first see the name and get directions to different areas.
+            </p>
+
+            <h3 class="text-3xl font-semibold text-gray-700 mb-4"><code class="bg-yellow-100 px-1 rounded">&lt;nav&gt;</code> Element</h3>
+            <div class="bg-gray-100 p-4 rounded-md shadow-inner mb-4">
+                <pre class="text-gray-900 overflow-x-auto"><code class="language-html">
+&lt;nav&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a href="home.html"&gt;Home&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="products.html"&gt;Products&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="contact.html"&gt;Contact Us&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;
+                </code></pre>
+            </div>
+            <p class="mb-6 text-lg">
+                The nav element contains navigation links - the menu that helps users move around your website. It's like the directory in a shopping mall that shows you where different stores are located.
+            </p>
+
+            <h3 class="text-3xl font-semibold text-gray-700 mb-4"><code class="bg-yellow-100 px-1 rounded">&lt;main&gt;</code> Element</h3>
+            <div class="bg-gray-100 p-4 rounded-md shadow-inner mb-4">
+                <pre class="text-gray-900 overflow-x-auto"><code class="language-html">
+&lt;main&gt;
+    &lt;h1&gt;About Our Company&lt;/h1&gt;
+    &lt;p&gt;We've been serving customers since 1995...&lt;/p&gt;
+&lt;/main&gt;
+                </code></pre>
+            </div>
+            <p class="mb-6 text-lg">
+                The main element contains the primary content of your webpage - the most important information that users came to see. There should only be one main element per page, just like a book has one main story.
+            </p>
+
+            <h3 class="text-3xl font-semibold text-gray-700 mb-4"><code class="bg-yellow-100 px-1 rounded">&lt;section&gt;</code> Element</h3>
+            <div class="bg-gray-100 p-4 rounded-md shadow-inner mb-4">
+                <pre class="text-gray-900 overflow-x-auto"><code class="language-html">
+&lt;section&gt;
+    &lt;h2&gt;Our Services&lt;/h2&gt;
+    &lt;p&gt;We offer a wide range of services including...&lt;/p&gt;
+&lt;/section&gt;
+&lt;section&gt;
+    &lt;h2&gt;Customer Testimonials&lt;/h2&gt;
+    &lt;p&gt;Here's what our customers say about us...&lt;/p&gt;
+&lt;/section&gt;
+                </code></pre>
+            </div>
+            <p class="mb-6 text-lg">
+                Sections group related content together. Think of them like chapters in a book - each section covers a specific topic or theme.
+            </p>
+
+            <h3 class="text-3xl font-semibold text-gray-700 mb-4"><code class="bg-yellow-100 px-1 rounded">&lt;article&gt;</code> Element</h3>
+            <div class="bg-gray-100 p-4 rounded-md shadow-inner mb-4">
+                <pre class="text-gray-900 overflow-x-auto"><code class="language-html">
+&lt;article&gt;
+    &lt;h2&gt;How to Bake the Perfect Chocolate Cake&lt;/h2&gt;
+    &lt;p&gt;Published on March 15, 2024&lt;/p&gt;
+    &lt;p&gt;Baking a chocolate cake might seem intimidating, but with these simple steps...&lt;/p&gt;
+&lt;/article&gt;
+                </code></pre>
+            </div>
+            <p class="mb-6 text-lg">
+                An article represents a standalone piece of content that could exist independently - like a blog post, news article, or product review. It's content that makes sense even if you removed it from the rest of the page.
+            </p>
+
+            <h3 class="text-3xl font-semibold text-gray-700 mb-4"><code class="bg-yellow-100 px-1 rounded">&lt;aside&gt;</code> Element</h3>
+            <div class="bg-gray-100 p-4 rounded-md shadow-inner mb-4">
+                <pre class="text-gray-900 overflow-x-auto"><code class="language-html">
+&lt;aside&gt;
+    &lt;h3&gt;Related Articles&lt;/h3&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a href="#"&gt;10 Baking Tips for Beginners&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;The History of Chocolate&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/aside&gt;
+                </code></pre>
+            </div>
+            <p class="mb-6 text-lg">
+                Aside elements contain content that's related to the main content but not essential to understanding it. Think of it like a sidebar in a magazine - it provides additional interesting information.
+            </p>
+
+            <h3 class="text-3xl font-semibold text-gray-700 mb-4"><code class="bg-yellow-100 px-1 rounded">&lt;footer&gt;</code> Element</h3>
+            <div class="bg-gray-100 p-4 rounded-md shadow-inner mb-4">
+                <pre class="text-gray-900 overflow-x-auto"><code class="language-html">
+&lt;footer&gt;
+    &lt;p&gt;&amp;copy; 2024 My Amazing Website. All rights reserved.&lt;/p&gt;
+    &lt;p&gt;Contact us: info@mywebsite.com | (555) 123-4567&lt;/p&gt;
+&lt;/footer&gt;
+                </code></pre>
+            </div>
+            <p class="mb-6 text-lg">
+                The footer typically contains copyright information, contact details, and links to legal pages. It's like the fine print at the bottom of a document.
+            </p>
+        </section>
+
+        <section id="text-elements" class="mb-12 bg-white p-8 rounded-lg shadow-md">
+            <h2 class="text-4xl font-bold text-blue-800 mb-6 section-heading">Text Elements</h2>
+
+            <h3 class="text-3xl font-semibold text-gray-700 mb-4">Headings: <code class="bg-yellow-100 px-1 rounded">&lt;h1&gt;</code> through <code class="bg-yellow-100 px-1 rounded">&lt;h6&gt;</code></h3>
+            <div class="bg-gray-100 p-4 rounded-md shadow-inner mb-4">
+                <pre class="text-gray-900 overflow-x-auto"><code class="language-html">
+&lt;h1&gt;This is the Main Title&lt;/h1&gt;
+&lt;h2&gt;This is a Major Section&lt;/h2&gt;
+&lt;h3&gt;This is a Subsection&lt;/h3&gt;
+&lt;h4&gt;This is a Sub-subsection&lt;/h4&gt;
+&lt;h5&gt;This is a Minor Heading&lt;/h5&gt;
+&lt;h6&gt;This is the Smallest Heading&lt;/h6&gt;
+                </code></pre>
+            </div>
+            <p class="mb-6 text-lg">
+                Headings create a hierarchy of information, like an outline. H1 is the most important (like the title of a book), H2 is for major sections (like chapter titles), H3 for subsections, and so on. Search engines use headings to understand the structure and importance of your content.
+            </p>
+
+            <h3 class="text-3xl font-semibold text-gray-700 mb-4"><code class="bg-yellow-100 px-1 rounded">&lt;p&gt;</code> Element (Paragraphs)</h3>
+            <div class="bg-gray-100 p-4 rounded-md shadow-inner mb-4">
+                <pre class="text-gray-900 overflow-x-auto"><code class="language-html">
+&lt;p&gt;This is a paragraph of text. Paragraphs are used to group related sentences together, just like in a book or essay. When you want to start a new thought or topic, you create a new paragraph.&lt;/p&gt;
+
+&lt;p&gt;This is another paragraph. Notice how browsers automatically add space between paragraphs to make them easier to read.&lt;/p&gt;
+                </code></pre>
+            </div>
+            <p class="mb-6 text-lg">
+                Paragraphs organize your text into readable chunks. Without paragraphs, all your text would run together in one long, difficult-to-read block.
+            </p>
+
+            <h3 class="text-3xl font-semibold text-gray-700 mb-4"><code class="bg-yellow-100 px-1 rounded">&lt;span&gt;</code> Element</h3>
+            <div class="bg-gray-100 p-4 rounded-md shadow-inner mb-4">
+                <pre class="text-gray-900 overflow-x-auto"><code class="language-html">
+&lt;p&gt;The weather today is &lt;span style="color: red;"&gt;extremely hot&lt;/span&gt; with temperatures reaching 95 degrees.&lt;/p&gt;
+                </code></pre>
+            </div>
+            <p class="mb-6 text-lg">
+                Span is like a highlighter pen - it lets you apply formatting to just a few words within a larger text block. It doesn't change the meaning of the content, just its appearance.
+            </p>
+
+            <h3 class="text-3xl font-semibold text-gray-700 mb-4"><code class="bg-yellow-100 px-1 rounded">&lt;div&gt;</code> Element</h3>
+            <div class="bg-gray-100 p-4 rounded-md shadow-inner mb-4">
+                <pre class="text-gray-900 overflow-x-auto"><code class="language-html">
+&lt;div class="product-card"&gt;
+    &lt;h3&gt;Amazing Product&lt;/h3&gt;
+    &lt;p&gt;This product will change your life!&lt;/p&gt;
+    &lt;button&gt;Buy Now&lt;/button&gt;
+&lt;/div&gt;
+                </code></pre>
+            </div>
+            <p class="mb-6 text-lg">
+                Div is like a container box - it groups related elements together so you can style them or position them as a unit. It's one of the most commonly used HTML elements for organizing page layout.
+            </p>
+        </section>
+
+        <section id="text-formatting" class="mb-12 bg-white p-8 rounded-lg shadow-md">
+            <h2 class="text-4xl font-bold text-blue-800 mb-6 section-heading">Text Formatting Elements</h2>
+
+            <h3 class="text-3xl font-semibold text-gray-700 mb-4"><code class="bg-yellow-100 px-1 rounded">&lt;strong&gt;</code> Element</h3>
+            <div class="bg-gray-100 p-4 rounded-md shadow-inner mb-4">
+                <pre class="text-gray-900 overflow-x-auto"><code class="language-html">
+&lt;p&gt;This is &lt;strong&gt;very important information&lt;/strong&gt; that you should pay attention to.&lt;/p&gt;
+                </code></pre>
+            </div>
+            <p class="mb-6 text-lg">
+                Strong indicates that the text is important or urgent. Browsers typically display it in bold, but screen readers will also emphasize it for visually impaired users.
+            </p>
+
+            <h3 class="text-3xl font-semibold text-gray-700 mb-4"><code class="bg-yellow-100 px-1 rounded">&lt;em&gt;</code> Element</h3>
+            <div class="bg-gray-100 p-4 rounded-md shadow-inner mb-4">
+                <pre class="text-gray-900 overflow-x-auto"><code class="language-html">
+&lt;p&gt;I &lt;em&gt;really&lt;/em&gt; think you should consider this option.&lt;/p&gt;
+                </code></pre>
+            </div>
+            <p class="mb-6 text-lg">
+                Em adds emphasis to text, like when you stress a word in speech. Browsers usually display it in italics, and screen readers will change their tone when reading it.
+            </p>
+
+            <h3 class="text-3xl font-semibold text-gray-700 mb-4"><code class="bg-yellow-100 px-1 rounded">&lt;mark&gt;</code> Element</h3>
+            <div class="bg-gray-100 p-4 rounded-md shadow-inner mb-4">
+                <pre class="text-gray-900 overflow-x-auto"><code class="language-html">
+&lt;p&gt;Please remember to submit your report by &lt;mark&gt;Friday at 5 PM&lt;/mark&gt;.&lt;/p&gt;
+                </code></pre>
+            </div>
+            <p class="mb-6 text-lg">
+                Mark highlights text like a yellow highlighter pen. It's useful for showing search results or drawing attention to specific information.
+            </p>
+
+            <h3 class="text-3xl font-semibold text-gray-700 mb-4"><code class="bg-yellow-100 px-1 rounded">&lt;small&gt;</code> Element</h3>
+            <div class="bg-gray-100 p-4 rounded-md shadow-inner mb-4">
+                <pre class="text-gray-900 overflow-x-auto"><code class="language-html">
+&lt;p&gt;Get 50% off all items! &lt;small&gt;*Offer valid until end of month. Terms and conditions apply.&lt;/small&gt;&lt;/p&gt;
+                </code></pre>
+            </div>
+            <p class="mb-6 text-lg">
+                Small is used for fine print, disclaimers, or less important information. It's like the small text at the bottom of advertisements.
+            </p>
+
+            <h3 class="text-3xl font-semibold text-gray-700 mb-4"><code class="bg-yellow-100 px-1 rounded">&lt;del&gt;</code> and <code class="bg-yellow-100 px-1 rounded">&lt;ins&gt;</code> Elements</h3>
+            <div class="bg-gray-100 p-4 rounded-md shadow-inner mb-4">
+                <pre class="text-gray-900 overflow-x-auto"><code class="language-html">
+&lt;p&gt;The price is &lt;del&gt;$100&lt;/del&gt; &lt;ins&gt;$75&lt;/ins&gt; for this week only!&lt;/p&gt;
+                </code></pre>
+            </div>
+            <p class="mb-6 text-lg">
+                Del shows deleted text (usually with a strikethrough line), and ins shows inserted text (usually underlined). They're useful for showing changes, like price reductions or document revisions.
+            </p>
+
+            <h3 class="text-3xl font-semibold text-gray-700 mb-4"><code class="bg-yellow-100 px-1 rounded">&lt;sub&gt;</code> and <code class="bg-yellow-100 px-1 rounded">&lt;sup&gt;</code> Elements</h3>
+            <div class="bg-gray-100 p-4 rounded-md shadow-inner mb-4">
+                <pre class="text-gray-900 overflow-x-auto"><code class="language-html">
+&lt;p&gt;Water has the chemical formula H&lt;sub&gt;2&lt;/sub&gt;O.&lt;/p&gt;
+&lt;p&gt;Einstein's famous equation is E=mc&lt;sup&gt;2&lt;/sup&gt;.&lt;/p&gt;
+                </code></pre>
+            </div>
+            <p class="mb-6 text-lg">
+                Sub creates subscript (text below the baseline) and sup creates superscript (text above the baseline). They're essential for mathematical formulas, chemical equations, and footnotes.
+            </p>
+        </section>
+
+        <section id="lists" class="mb-12 bg-white p-8 rounded-lg shadow-md">
+            <h2 class="text-4xl font-bold text-blue-800 mb-6 section-heading">Lists</h2>
+
+            <h3 class="text-3xl font-semibold text-gray-700 mb-4">Unordered Lists <code class="bg-yellow-100 px-1 rounded">&lt;ul&gt;</code> and <code class="bg-yellow-100 px-1 rounded">&lt;ol&gt;</code></h3>
+            <div class="bg-gray-100 p-4 rounded-md shadow-inner mb-4">
+                <pre class="text-gray-900 overflow-x-auto"><code class="language-html">
+&lt;!-- Unordered list (bullets) --&gt;
+&lt;ul&gt;
+    &lt;li&gt;Apples&lt;/li&gt;
+    &lt;li&gt;Bananas&lt;/li&gt;
+    &lt;li&gt;Oranges&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- Ordered list (numbers) --&gt;
+&lt;ol&gt;
+    &lt;li&gt;Preheat the oven to 350°F&lt;/li&gt;
+    &lt;li&gt;Mix the ingredients&lt;/li&gt;
+    &lt;li&gt;Bake for 30 minutes&lt;/li&gt;
+&lt;/ol&gt;
+                </code></pre>
+            </div>
+            <p class="mb-6 text-lg">
+                Unordered lists use bullets and are for items where order doesn't matter (like a shopping list). Ordered lists use numbers and are for sequential steps (like a recipe).
+            </p>
+
+            <h3 class="text-3xl font-semibold text-gray-700 mb-4">Description Lists <code class="bg-yellow-100 px-1 rounded">&lt;dl&gt;</code>, <code class="bg-yellow-100 px-1 rounded">&lt;dt&gt;</code>, <code class="bg-yellow-100 px-1 rounded">&lt;dd&gt;</code></h3>
+            <div class="bg-gray-100 p-4 rounded-md shadow-inner mb-4">
+                <pre class="text-gray-900 overflow-x-auto"><code class="language-html">
+&lt;dl&gt;
+    &lt;dt&gt;HTML&lt;/dt&gt;
+    &lt;dd&gt;HyperText Markup Language - the structure of web pages&lt;/dd&gt;
+    
+    &lt;dt&gt;CSS&lt;/dt&gt;
+    &lt;dd&gt;Cascading Style Sheets - controls the appearance of web pages&lt;/dd&gt;
+    
+    &lt;dt&gt;JavaScript&lt;/dt&gt;
+    &lt;dd&gt;A programming language that makes web pages interactive&lt;/dd&gt;
+&lt;/dl&gt;
+                </code></pre>
+            </div>
+            <p class="mb-6 text-lg">
+                Description lists are like a glossary or dictionary - they pair terms with their definitions or descriptions.
+            </p>
+        </section>
+
+        <section id="links" class="mb-12 bg-white p-8 rounded-lg shadow-md">
+            <h2 class="text-4xl font-bold text-blue-800 mb-6 section-heading">Links</h2>
+
+            <h3 class="text-3xl font-semibold text-gray-700 mb-4">The <code class="bg-yellow-100 px-1 rounded">&lt;a&gt;</code> Tag and Its Attributes</h3>
+            <div class="bg-gray-100 p-4 rounded-md shadow-inner mb-4">
+                <pre class="text-gray-900 overflow-x-auto"><code class="language-html">
+&lt;!-- Basic link --&gt;
+&lt;a href="https://www.example.com"&gt;Visit Example.com&lt;/a&gt;
+
+&lt;!-- Link to another page on your site --&gt;
+&lt;a href="about.html"&gt;About Us&lt;/a&gt;
+
+&lt;!-- Link to an email address --&gt;
+&lt;a href="mailto:contact@example.com"&gt;Send us an email&lt;/a&gt;
+
+&lt;!-- Link to a phone number --&gt;
+&lt;a href="tel:+1234567890"&gt;Call us&lt;/a&gt;
+
+&lt;!-- Link that opens in a new tab --&gt;
+&lt;a href="https://www.example.com" target="_blank"&gt;Open in new tab&lt;/a&gt;
+
+&lt;!-- Link with a tooltip --&gt;
+&lt;a href="https://www.example.com" title="This will take you to Example.com"&gt;Hover over me&lt;/a&gt;
+
+&lt;!-- Download link --&gt;
+&lt;a href="document.pdf" download="my-document.pdf"&gt;Download PDF&lt;/a&gt;
+                </code></pre>
+            </div>
+            <p class="mb-6 text-lg">
+                The <code class="bg-yellow-100 px-1 rounded">href</code> attribute (hypertext reference) specifies where the link goes. The <code class="bg-yellow-100 px-1 rounded">target="_blank"</code> attribute opens the link in a new tab. The <code class="bg-yellow-100 px-1 rounded">title</code> attribute creates a tooltip that appears when you hover over the link. The <code class="bg-yellow-100 px-1 rounded">download</code> attribute suggests that the browser should download the file instead of navigating to it.
+            </p>
+        </section>
+
+        <section id="images" class="mb-12 bg-white p-8 rounded-lg shadow-md">
+            <h2 class="text-4xl font-bold text-blue-800 mb-6 section-heading">Images</h2>
+
+            <h3 class="text-3xl font-semibold text-gray-700 mb-4">The <code class="bg-yellow-100 px-1 rounded">&lt;img&gt;</code> Element and Its Attributes</h3>
+            <div class="bg-gray-100 p-4 rounded-md shadow-inner mb-4">
+                <pre class="text-gray-900 overflow-x-auto"><code class="language-html">
+&lt;img src="cat.jpg" 
+     alt="A fluffy orange cat sitting in a sunny window" 
+     width="300" 
+     height="200" 
+     loading="lazy"&gt;
+                </code></pre>
+            </div>
+            <p class="mb-4 text-lg">Let me explain each attribute:</p>
+            <ul class="list-disc list-inside space-y-2 mb-6 text-lg">
+                <li><code class="bg-yellow-100 px-1 rounded">src</code> (source): This is the path to your image file. It can be a file on your website or a URL to an image on another website.</li>
+                <li><code class="bg-yellow-100 px-1 rounded">alt</code> (alternative text): This is crucial for accessibility. Screen readers use this to describe the image to visually impaired users. It also appears if the image fails to load. Always write descriptive alt text that explains what's in the image.</li>
+                <li><code class="bg-yellow-100 px-1 rounded">width</code> and <code class="bg-yellow-100 px-1 rounded">height</code>: These set the size of the image in pixels. It's good practice to include these so the browser can reserve space for the image while it loads, preventing the page from jumping around.</li>
+                <li><code class="bg-yellow-100 px-1 rounded">loading="lazy"</code>: This tells the browser to only load the image when it's about to come into view. This speeds up page loading, especially on pages with many images.</li>
+            </ul>
+        </section>
+
+        <section id="comments" class="mb-12 bg-white p-8 rounded-lg shadow-md">
+            <h2 class="text-4xl font-bold text-blue-800 mb-6 section-heading">HTML Comments</h2>
+            <div class="bg-gray-100 p-4 rounded-md shadow-inner mb-4">
+                <pre class="text-gray-900 overflow-x-auto"><code class="language-html">
+&lt;!-- This is a comment. It won't appear on the webpage, but it helps explain the code --&gt;
+&lt;header&gt;
+    &lt;h1&gt;My Website&lt;/h1&gt;
+    &lt;!-- TODO: Add navigation menu here --&gt;
+&lt;/header&gt;
+                </code></pre>
+            </div>
+            <p class="mb-6 text-lg">
+                Comments are notes for yourself and other developers. They're invisible to website visitors but help explain what different parts of your code do. Use them to leave reminders, explain complex sections, or temporarily hide code you might want to use later.
+            </p>
+        </section>
+
+        <section id="validation" class="mb-12 bg-white p-8 rounded-lg shadow-md">
+            <h2 class="text-4xl font-bold text-blue-800 mb-6 section-heading">HTML Validation and Best Practices</h2>
+
+            <h3 class="text-3xl font-semibold text-gray-700 mb-4">Why Validation Matters</h3>
+            <p class="mb-4 text-lg">
+                HTML validation is like proofreading an essay - it catches errors that might cause problems. Invalid HTML can lead to:
+            </p>
+            <ul class="list-disc list-inside space-y-2 mb-6 text-lg">
+                <li>Pages that look different in different browsers</li>
+                <li>Accessibility issues for users with disabilities</li>
+                <li>Problems with search engine optimization</li>
+                <li>Unexpected behavior when you add CSS or JavaScript</li>
+            </ul>
+
+            <aside class="bg-blue-50 p-6 rounded-lg shadow-inner border-l-4 border-blue-500 mb-6">
+                <h3 class="text-2xl font-bold text-blue-700 mb-4">Best Practices</h3>
+                <ul class="list-disc list-inside space-y-2 text-lg">
+                    <li><strong>Always use semantic HTML:</strong> Choose elements based on meaning, not appearance. Use <code class="bg-yellow-100 px-1 rounded">&lt;h1&gt;</code> for main headings because it's a heading, not because you want big text.</li>
+                    <li><strong>Include alt text for all images:</strong> This helps visually impaired users and improves SEO.</li>
+                    <li><strong>Use proper nesting:</strong> HTML elements should be properly nested like Russian dolls. If you open a <code class="bg-yellow-100 px-1 rounded">&lt;p&gt;</code> tag inside a <code class="bg-yellow-100 px-1 rounded">&lt;div&gt;</code>, close the <code class="bg-yellow-100 px-1 rounded">&lt;p&gt;</code> before closing the <code class="bg-yellow-100 px-1 rounded">&lt;div&gt;</code>.</li>
+                    <li><strong>Keep it simple:</strong> Don't use complex markup when simple markup will do. The more complex your HTML, the more likely you are to introduce errors.</li>
+                    <li><strong>Test in multiple browsers:</strong> Different browsers might interpret your HTML slightly differently, so test your pages in Chrome, Firefox, Safari, and Edge.</li>
+                    <li><strong>Use a validator:</strong> The W3C HTML Validator (validator.w3.org) can check your code for errors and suggest improvements.</li>
+                </ul>
+            </aside>
+
+            <article class="bg-gray-100 p-6 rounded-lg shadow-inner border-l-4 border-gray-300">
+                <h2 class="text-3xl font-bold text-gray-700 mb-4">Common Mistakes to Avoid</h2>
+                <ul class="list-disc list-inside space-y-2 text-lg">
+                    <li>Forgetting to close tags</li>
+                    <li>Using incorrect nesting (like putting a <code class="bg-yellow-100 px-1 rounded">&lt;div&gt;</code> inside a <code class="bg-yellow-100 px-1 rounded">&lt;p&gt;</code>)</li>
+                    <li>Missing <code class="bg-yellow-100 px-1 rounded">alt</code> attributes on images</li>
+                    <li>Using outdated HTML (like <code class="bg-yellow-100 px-1 rounded">&lt;font&gt;</code> tags instead of CSS)</li>
+                    <li>Not including the DOCTYPE declaration</li>
+                    <li>Forgetting the <code class="bg-yellow-100 px-1 rounded">lang</code> attribute on the html element</li>
+                </ul>
+            </article>
+        </section>
+
+        <section id="putting-it-together" class="mb-12 bg-blue-50 p-8 rounded-lg shadow-md border-2 border-blue-200">
+            <h2 class="text-4xl font-bold text-blue-800 mb-6 section-heading">Putting It All Together</h2>
+            <p class="mb-4 text-lg">
+                Here's a complete example that demonstrates all the concepts we've covered:
+            </p>
+            <div class="bg-gray-100 p-4 rounded-md shadow-inner mb-4">
+                <pre class="text-gray-900 overflow-x-auto"><code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;meta name="description" content="Learn about our amazing bakery and delicious recipes"&gt;
+    &lt;title&gt;Sweet Dreams Bakery - Fresh Baked Goods Daily&lt;/title&gt;
+    &lt;link rel="stylesheet" href="styles.css"&gt;
+    &lt;link rel="icon" href="favicon.ico" type="image/x-icon"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;header&gt;
+        &lt;h1&gt;Sweet Dreams Bakery&lt;/h1&gt;
+        &lt;nav&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;a href="#home"&gt;Home&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#menu"&gt;Menu&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#about"&gt;About&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#contact"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/nav&gt;
+    &lt;/header&gt;
+
+    &lt;main&gt;
+        &lt;section id="home"&gt;
+            &lt;h2&gt;Welcome to Sweet Dreams&lt;/h2&gt;
+            &lt;p&gt;We've been baking &lt;strong&gt;fresh, delicious treats&lt;/strong&gt; for our community since 1995. Our secret ingredient? &lt;em&gt;Love&lt;/em&gt; in every recipe!&lt;/p&gt;
+            
+            &lt;img src="https://placehold.co/600x400/90EE90/000000?text=Bakery+Interior" 
+                 alt="Interior of Sweet Dreams Bakery showing display cases full of pastries" 
+                 width="600" 
+                 height="400" 
+                 loading="lazy"&gt;
+        &lt;/section&gt;
+
+        &lt;section id="menu"&gt;
+            &lt;h2&gt;Today's Specials&lt;/h2&gt;
+            &lt;h3&gt;Fresh Breads&lt;/h3&gt;
+            &lt;ul&gt;
+                &lt;li&gt;Sourdough - &lt;mark&gt;Baker's Choice!&lt;/mark&gt;&lt;/li&gt;
+                &lt;li&gt;Whole Wheat&lt;/li&gt;
+                &lt;li&gt;Rye&lt;/li&gt;
+            &lt;/ul&gt;
+
+            &lt;h3&gt;Sweet Treats&lt;/h3&gt;
+            &lt;ol&gt;
+                &lt;li&gt;Chocolate Chip Cookies&lt;/li&gt;
+                &lt;li&gt;Apple Pie&lt;/li&gt;
+                &lt;li&gt;Cinnamon Rolls&lt;/li&gt;
+            &lt;/ol&gt;
+        &lt;/section&gt;
+
+        &lt;article&gt;
+            &lt;h2&gt;Recipe of the Month: Perfect Chocolate Cake&lt;/h2&gt;
+            &lt;p&gt;&lt;small&gt;Published on March 15, 2024&lt;/small&gt;&lt;/p&gt;
+            &lt;p&gt;Making the perfect chocolate cake requires just a few key ingredients and some &lt;strong&gt;patience&lt;/strong&gt;. Here's our secret recipe...&lt;/p&gt;
+            
+            &lt;!-- Recipe steps would go here --&gt;
+            
+            &lt;p&gt;The secret is in the temperature - bake at 350&amp;deg;F (175&amp;deg;C&lt;sup&gt;*&lt;/sup&gt;) for exactly 30 minutes.&lt;/p&gt;
+            &lt;p&gt;&lt;small&gt;*Celsius conversion provided for our international readers&lt;/small&gt;&lt;/p&gt;
+        &lt;/article&gt;
+
+        &lt;aside&gt;
+            &lt;h3&gt;Did You Know?&lt;/h3&gt;
+            &lt;dl&gt;
+                &lt;dt&gt;Sourdough Starter&lt;/dt&gt;
+                &lt;dd&gt;Our sourdough starter is over 25 years old!&lt;/dd&gt;
+                
+                &lt;dt&gt;Daily Production&lt;/dt&gt;
+                &lt;dd&gt;We bake over 200 loaves of bread every day&lt;/dd&gt;
+            &lt;/dl&gt;
+        &lt;/aside&gt;
+    &lt;/main&gt;
+
+    &lt;footer&gt;
+        &lt;p&gt;&amp;copy; 2024 Sweet Dreams Bakery. All rights reserved.&lt;/p&gt;
+        &lt;p&gt;Visit us at 123 Baker Street | &lt;a href="tel:+1555123456"&gt;Call: (555) 123-4567&lt;/a&gt; | &lt;a href="mailto:info@sweetdreamsbakery.com"&gt;Email Us&lt;/a&gt;&lt;/p&gt;
+    &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+                </code></pre>
+            </div>
+            <p class="mb-4 text-lg">
+                This example shows how all the HTML5 elements work together to create a complete, semantic, and accessible webpage. Each element has a specific purpose and contributes to the overall structure and meaning of the page.
+            </p>
+            <p class="mb-4 text-lg">
+                Remember, HTML is like learning a new language - it takes practice to become fluent. Start with simple pages and gradually add more complex elements as you become comfortable with the basics.
+            </p>
+        </section>
+    </main>
+
+    <!-- Footer section -->
+    <footer class="bg-gray-800 text-white py-8 px-6 md:px-12 text-center text-lg">
+        <div class="container mx-auto">
+            <p class="mb-2">&copy; 2025 Complete HTML5 Basics Guide. All rights reserved by Atomic-Quark</p>
+                <a href="mailto:atom.network@gmail.com" class="text-blue-300 hover:text-blue-100 transition-colors duration-300 mx-2">Contact Us</a>
+                <a href="tel:9905402553" class="text-blue-300 hover:text-blue-100 transition-colors duration-300 mx-2">Call Us</a>
+            <p class="mt-4">
+                <a href="#top" class="hover:text-blue-200 transition-colors duration-300">Back to Top</a>   
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
