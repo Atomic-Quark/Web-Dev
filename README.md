@@ -1,5 +1,5 @@
 # Web-Dev
-It contains HTML5 , Normal CSS, Normal JS complete
+### It contains HTML5 , Normal CSS, Normal JS complete
 
 
 # HTML5, CSS & JavaScript Complete Course Syllabus
@@ -36,7 +36,7 @@ It contains HTML5 , Normal CSS, Normal JS complete
 ![image](https://github.com/user-attachments/assets/87ae221c-1f68-4378-bb99-e831a545a2a6)
 ![image](https://github.com/user-attachments/assets/fea8ccbc-f10b-413f-aa3c-d50a32c240a1)
 
-Putting It All Together
+### Putting It All Together
 
 Here's a complete example that demonstrates all the concepts we've covered:
 
