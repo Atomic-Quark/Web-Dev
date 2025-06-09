@@ -18,6 +18,115 @@ It contains HTML5 , Normal CSS, Normal JS complete
 - Comments in HTML
 - HTML validation and best practices
 
+![image](https://github.com/user-attachments/assets/cb7e6519-afce-4738-9a61-86fa35161f74)
+![image](https://github.com/user-attachments/assets/2a0cae14-e911-484c-be5e-5017f84a4deb)
+![image](https://github.com/user-attachments/assets/6f61ac83-899c-4104-a9de-8b7831c610bd)
+![image](https://github.com/user-attachments/assets/140a2dbb-a0b2-4954-bd6c-228ff8965919)
+![image](https://github.com/user-attachments/assets/3e58efd4-2e95-4e53-a03c-52e7c6609dc3)
+![image](https://github.com/user-attachments/assets/e7382279-0da3-4cf6-a9d7-4df367b6f1b8)
+![image](https://github.com/user-attachments/assets/a753fdbd-e5b8-46ad-b028-e8ca551eefe2)
+![image](https://github.com/user-attachments/assets/ed83ea79-cc35-4df9-a7c4-d279d2a0f60d)
+![image](https://github.com/user-attachments/assets/77d306a8-f5b2-49a6-be8f-a06925af1132)
+![image](https://github.com/user-attachments/assets/4cb5a2cc-c21f-4112-b978-b3ff63fa6b72)
+![image](https://github.com/user-attachments/assets/fa823a45-519c-49ea-84fd-ea693c358434)
+![image](https://github.com/user-attachments/assets/1324ee08-0303-4fc6-b3ba-8613cdbe5c62)
+![image](https://github.com/user-attachments/assets/3e97d553-1864-47ca-9f19-c718ab202e2d)
+![image](https://github.com/user-attachments/assets/01a8fadd-ae92-424e-b10f-9b53bc3cd1ab)
+![image](https://github.com/user-attachments/assets/a899b028-ca2c-4118-a7a8-9e2e3d068b8e)
+![image](https://github.com/user-attachments/assets/87ae221c-1f68-4378-bb99-e831a545a2a6)
+![image](https://github.com/user-attachments/assets/fea8ccbc-f10b-413f-aa3c-d50a32c240a1)
+
+Putting It All Together
+
+Here's a complete example that demonstrates all the concepts we've covered:
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn about our amazing bakery and delicious recipes">
+    <title>Sweet Dreams Bakery - Fresh Baked Goods Daily</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <h1>Sweet Dreams Bakery</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home">
+            <h2>Welcome to Sweet Dreams</h2>
+            <p>We've been baking <strong>fresh, delicious treats</strong> for our community since 1995. Our secret ingredient? <em>Love</em> in every recipe!</p>
+            
+            <img src="https://placehold.co/600x400/90EE90/000000?text=Bakery+Interior" 
+                 alt="Interior of Sweet Dreams Bakery showing display cases full of pastries" 
+                 width="600" 
+                 height="400" 
+                 loading="lazy">
+        </section>
+
+        <section id="menu">
+            <h2>Today's Specials</h2>
+            <h3>Fresh Breads</h3>
+            <ul>
+                <li>Sourdough - <mark>Baker's Choice!</mark></li>
+                <li>Whole Wheat</li>
+                <li>Rye</li>
+            </ul>
+
+            <h3>Sweet Treats</h3>
+            <ol>
+                <li>Chocolate Chip Cookies</li>
+                <li>Apple Pie</li>
+                <li>Cinnamon Rolls</li>
+            </ol>
+        </section>
+
+        <article>
+            <h2>Recipe of the Month: Perfect Chocolate Cake</h2>
+            <p><small>Published on March 15, 2024</small></p>
+            <p>Making the perfect chocolate cake requires just a few key ingredients and some <strong>patience</strong>. Here's our secret recipe...</p>
+            
+            <!-- Recipe steps would go here -->
+            
+            <p>The secret is in the temperature - bake at 350&deg;F (175&deg;C<sup>*</sup>) for exactly 30 minutes.</p>
+            <p><small>*Celsius conversion provided for our international readers</small></p>
+        </article>
+
+        <aside>
+            <h3>Did You Know?</h3>
+            <dl>
+                <dt>Sourdough Starter</dt>
+                <dd>Our sourdough starter is over 25 years old!</dd>
+                
+                <dt>Daily Production</dt>
+                <dd>We bake over 200 loaves of bread every day</dd>
+            </dl>
+        </aside>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Sweet Dreams Bakery. All rights reserved.</p>
+        <p>Visit us at 123 Baker Street | <a href="tel:+1555123456">Call: (555) 123-4567</a> | <a href="mailto:info@sweetdreamsbakery.com">Email Us</a></p>
+    </footer>
+</body>
+</html>
+                
+
+
+
+
 ### Class 2 (Sunday) - Advanced HTML5 Elements (2.5 hours)
 - **Form Elements Complete:**
   - `<form>` with action, method, enctype, target attributes
